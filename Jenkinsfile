@@ -17,7 +17,7 @@ pipeline {
           'flask docker image':{
             node('master') {
               deleteDir()
-              sh 'echo "HELLO"'
+              sh 'create_ec2_instance'
             }
           }
         )
