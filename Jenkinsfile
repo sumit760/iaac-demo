@@ -14,10 +14,15 @@ pipeline {
 	stage('Create EC2 Instance') {
       steps {
         parallel(
-          'flask docker image':{
+          'Create EC2 Instance':{
             node('master') {
               deleteDir()
-              sh 'echo "HELLO"'
+	      unstash 'code'
+              //sh 'cd ${WORKSPACE}'
+	      //sh 'chmod +x wrapper.sh'
+	      sh 'wrapper.sh'
+	      sh 'sleep 60'
+		
             }
           }
         )
