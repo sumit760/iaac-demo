@@ -31,9 +31,11 @@ pipeline {
         parallel(
           'Build Application':{
             node('master') {
-              deleteDir()
-	      unstash 'code'
-              sh 'mvn clean install'
+	       withMaven(maven: 'mvn3.2.5') {
+		     deleteDir()
+	     	     unstash 'code'
+              	     sh 'mvn clean install'
+		}
             }
           }
         )
