@@ -2,7 +2,7 @@ pipeline {
 
   agent none
   stages {
-    stage('prep'){
+    stage('Checkout Code'){
       steps {
         node('master') {
           deleteDir()
@@ -11,7 +11,7 @@ pipeline {
         }
       }
     }
-	stage('create aws instance from code') {
+	stage('Create EC2 Instance') {
       steps {
         parallel(
           'flask docker image':{
@@ -23,7 +23,7 @@ pipeline {
         )
       }
     }
-    stage('build and testing') {
+    stage('Build Application') {
       steps {
         parallel(
           // REST API stuff
@@ -48,6 +48,30 @@ pipeline {
       }
     }
     stage('build docker images') {
+      steps {
+        parallel(
+          'flask docker image':{
+            node('master') {
+              deleteDir()
+              sh 'echo "HELLO"'
+            }
+          }
+        )
+      }
+    }
+	stage('Deploy Containerized App on EC2') {
+      steps {
+        parallel(
+          'flask docker image':{
+            node('master') {
+              deleteDir()
+              sh 'echo "HELLO"'
+            }
+          }
+        )
+      }
+    }
+	stage('Testing') {
       steps {
         parallel(
           'flask docker image':{
