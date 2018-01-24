@@ -8,6 +8,7 @@ fi
 echo "Deploying Demo Instance"
 
 cd infrastructure
+terraform destroy -force
 terraform init
 terraform plan -out demo.plan
 terraform apply -auto-approve "demo.plan"
