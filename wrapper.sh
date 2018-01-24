@@ -5,8 +5,8 @@ if [ -f "/var/tmp/publicip" ];then
 rm -f /var/tmp/publicip
 fi
 
-if [ -f "/var/tmp/instanceurl" ];then
-  rm -f /var/tmp/instanceurl
+if [ -f "/var/tmp/web.properties" ];then
+  rm -f /var/tmp/web.properties
 fi
 
 echo "Deploying Demo Instance"
@@ -22,4 +22,4 @@ echo "Instance Created Successfully"
 
 echo "Creating App Url"
 INSTANCE_IP=`cat /var/tmp/publicip`
-echo "http://${INSTANCE_IP}:9080/Presentation-0.0.1-SNAPSHOT" > /var/tmp/instanceurl
+echo "URL=http://${INSTANCE_IP}:9080/Presentation-0.0.1-SNAPSHOT" > /var/tmp/web.properties
