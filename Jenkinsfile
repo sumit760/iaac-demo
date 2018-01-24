@@ -50,7 +50,9 @@ pipeline {
           'build docker image':{
             node('master') {
               deleteDir()
+	      unstash 'code'
               sh 'echo "HELLO"'
+	      sh '${WORKSPACE}/docker_create_deploy.sh'
             }
           }
         )
