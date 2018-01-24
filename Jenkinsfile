@@ -11,6 +11,18 @@ pipeline {
         }
       }
     }
+	stage('create aws instance from code') {
+      steps {
+        parallel(
+          'flask docker image':{
+            node('master') {
+              deleteDir()
+              sh 'echo "HELLO"'
+            }
+          }
+        )
+      }
+    }
     stage('build and testing') {
       steps {
         parallel(
@@ -35,13 +47,7 @@ pipeline {
      
          ,
 
-          'build sqlite3 database': {
-            node('master') {
-              deleteDir()
-              unstash 'code'
-              sh 'echo "HELLO"'
-            }
-          }
+         
        
         )
       }
