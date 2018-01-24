@@ -106,6 +106,7 @@ public interface ICommonConstants {
 	//URI Domains
 		String URI_DOMAIN_COMCAST = "COMCAST";
 		String URI_DOMAIN_XFINITY = "XFINITY";
+		String URI_DOMAIN_UNILEVER = "UNILEVER";
 			
 	//List of Cache -- Start
 		String CACHE_CONFIGURARTION_PARAMS = "configCache";
