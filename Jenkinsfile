@@ -18,10 +18,8 @@ pipeline {
             node('master') {
               deleteDir()
 	      unstash 'code'
-              //sh 'cd ${WORKSPACE}'
-	      //sh 'chmod +x wrapper.sh'
-	      sh '${WORKSPACE}/wrapper.sh'
-	      sh 'sleep 60'
+	      //sh '${WORKSPACE}/wrapper.sh'
+	      //sh 'sleep 60'
 		
             }
           }
@@ -31,10 +29,11 @@ pipeline {
     stage('Build Application') {
       steps {
         parallel(
-          'flask docker image':{
+          'Build Application':{
             node('master') {
               deleteDir()
-              sh 'echo "HELLO"'
+	      unstash 'code'
+              sh 'mvn clean install'
             }
           }
         )
@@ -43,7 +42,7 @@ pipeline {
     stage('build docker images') {
       steps {
         parallel(
-          'flask docker image':{
+          'build docker image':{
             node('master') {
               deleteDir()
               sh 'echo "HELLO"'
