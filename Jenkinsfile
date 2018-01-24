@@ -10,20 +10,7 @@ pipeline {
         }
       }
     }
-    stage('Create instance from code') {
-      steps {
-     
-          // REST API stuff
-          'tests unit': {
-            node('master') {
-              deleteDir()
-              unstash 'code'
-              sh 'echo "HELLO"'
-              
-            }
-          }
-      }
-    }
+    
 	stage('build and create war file') {
       steps {
           'flask docker image':{
