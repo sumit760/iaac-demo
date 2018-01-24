@@ -26,24 +26,12 @@ pipeline {
     stage('Build Application') {
       steps {
         parallel(
-          // REST API stuff
-          'tests unit': {
+          'flask docker image':{
             node('master') {
               deleteDir()
-              unstash 'code'
               sh 'echo "HELLO"'
-              
             }
-          },
-           // TODO: make the coverage report be built-into the unit/acceptance test steps
-       
-          'tests acceptance': {
-            node('master') {
-              deleteDir()
-              unstash 'code'
-             sh 'echo "HELLO"'
-            }
-           },         
+          }
         )
       }
     }
