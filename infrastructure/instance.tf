@@ -6,7 +6,7 @@ provider "aws" {
 resource "aws_instance" "pwc_demo_instances" {
   count = "1"
   instance_type          = "t2.large"
-  ami                    = "ami-ca4c1da5"
+  ami                    = "ami-5b99c834"
   key_name               = "PWC-DEMO-K"
   availability_zone      = "ap-south-1a"
   subnet_id              = "subnet-bed470d6"
