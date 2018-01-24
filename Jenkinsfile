@@ -17,6 +17,7 @@ pipeline {
           'Create EC2 Instance':{
             node('master') {
               deleteDir()
+	      unstash 'code'
               sh 'cd ${WORKSPACE}'
 	      sh 'chmod +x wrapper.sh'
 	      sh 'wrapper'
