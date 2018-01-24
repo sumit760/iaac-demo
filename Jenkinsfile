@@ -35,7 +35,7 @@ pipeline {
 		     deleteDir()
 	     	     unstash 'code'
               	     sh 'mvn clean install'
-		     archiveArtifacts '*.war'
+		     archiveArtifacts 'target/*.war'
 		     stash name:'war_file', includes: 'Presentation-0.0.1-SNAPSHOT.war'
 		}
             }
