@@ -20,7 +20,7 @@ pipeline {
 	      unstash 'code'
               //sh 'cd ${WORKSPACE}'
 	      //sh 'chmod +x wrapper.sh'
-	      sh 'wrapper.sh'
+	      sh '${WORKSPACE}/wrapper.sh'
 	      sh 'sleep 60'
 		
             }
