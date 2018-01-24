@@ -18,8 +18,8 @@ pipeline {
             node('master') {
               deleteDir()
 	      unstash 'code'
-	      //sh '${WORKSPACE}/wrapper.sh'
-	      //sh 'sleep 60'
+	      sh '${WORKSPACE}/wrapper.sh'
+	      sh 'sleep 60'
 		
             }
           }
@@ -44,30 +44,21 @@ pipeline {
         )
       }
     }
-    stage('build docker images') {
+    stage('Create & Deploy containerized App image on EC2') {
       steps {
         parallel(
           'build docker image':{
             node('master') {
               deleteDir()
+	      unstash 'code'
               sh 'echo "HELLO"'
+	      sh '${WORKSPACE}/docker_create_deploy.sh'
             }
           }
         )
       }
     }
-	stage('Deploy Containerized App on EC2') {
-      steps {
-        parallel(
-          'flask docker image':{
-            node('master') {
-              deleteDir()
-              sh 'echo "HELLO"'
-            }
-          }
-        )
-      }
-    }
+
 	stage('Testing') {
       steps {
         parallel(
