@@ -18,9 +18,9 @@ pipeline {
             node('master') {
               deleteDir()
 	      unstash 'code'
-              sh 'cd ${WORKSPACE}'
-	      sh 'chmod +x wrapper.sh'
-	      sh 'wrapper'
+              //sh 'cd ${WORKSPACE}'
+	      //sh 'chmod +x wrapper.sh'
+	      sh 'wrapper.sh'
 	      sh 'sleep 60'
 		
             }
