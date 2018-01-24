@@ -23,15 +23,51 @@ pipeline {
               
             }
           },
-        
-          'tests unit': {
+           // TODO: make the coverage report be built-into the unit/acceptance test steps
+          'coverage': {
+            node('master') {
+              deleteDir()
+              unstash 'code'
+              sh 'echo "HELLO"'
+            }
+          },
+          'tests acceptance': {
             node('master') {
               deleteDir()
               unstash 'code'
              sh 'echo "HELLO"'
             }
            },
-        
+          'flake8': {
+            node('master') {
+              deleteDir()
+              unstash 'code'
+              sh 'echo "HELLO"'
+            }
+           },
+          'pylint': {
+            node('master') {
+              deleteDir()
+              unstash 'code'
+              sh 'echo "HELLO"'
+            }
+          },
+         ,
+          'build wheel package': {
+            node('master') {
+              deleteDir()
+              unstash 'code'
+              sh 'echo "HELLO"'
+            }
+          },
+          'build sqlite3 database': {
+            node('master') {
+              deleteDir()
+              unstash 'code'
+              sh 'echo "HELLO"'
+            }
+          }
+       
         )
       }
     }
