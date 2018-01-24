@@ -1,0 +1,430 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.comcast.cima.test.cit</groupId>
+	<artifactId>cit</artifactId>
+	<version>LATEST-SNAPSHOT</version>
+	<name>CIMA Integration Test Framework</name>
+	<packaging>pom</packaging>
+
+	<properties>
+		<maven-compiler-plugin-version>3.3</maven-compiler-plugin-version>
+		<maven-jar-plugin-version>2.6</maven-jar-plugin-version>
+		<maven-clean-plugin-version>2.6.1</maven-clean-plugin-version>
+		<maven-deploy-plugin-version>2.8.2</maven-deploy-plugin-version>
+		<exec-maven-plugin-version>1.4.0</exec-maven-plugin-version>
+		<jdk-version>1.7</jdk-version>
+		<repository-url>http://maven.teamccp.com</repository-url>
+		<testng-version>6.9.4</testng-version>
+		<cucumber-java-version>1.2.4</cucumber-java-version>
+		<gherkin-version>2.12.2</gherkin-version>
+		<junit-version>4.12</junit-version>
+		<wink-client-version>1.4</wink-client-version>
+		<selenium-server-version>2.52.0</selenium-server-version>
+		<google.oauth-client.version>1.21.0</google.oauth-client.version>
+		<log4j.version>1.2.17</log4j.version>
+		<slf4j.version>1.7.12</slf4j.version>
+		<oauth2-client-version>1.0.0</oauth2-client-version>
+		<jackson2.version>2.6.2</jackson2.version>
+		<jackson-core-asl-version>1.9.13</jackson-core-asl-version>
+		<jaxb-impl-version>2.2.7</jaxb-impl-version>
+		<commons-codec-version>1.10</commons-codec-version>
+		<spring.version>4.1.6.RELEASE</spring.version>
+		<org.aspectj-version>1.8.6</org.aspectj-version>
+		<geronimo-spec-jta-version>1.0.1B-rc4</geronimo-spec-jta-version>
+		<hibernate-version>4.3.10.Final</hibernate-version>
+		<mysql-connector-version>5.1.36</mysql-connector-version>
+		<apache-jcs-core-version>2.0-beta-1</apache-jcs-core-version>
+		<xbean-version>4.3</xbean-version>
+		<jdom2-version>2.0.6</jdom2-version>
+		<poi-version>3.12</poi-version>
+		<sauce-common-version>2.1.20</sauce-common-version>
+		<jackson-databind-version>2.6.2</jackson-databind-version>
+		<jsch-version>0.1.53</jsch-version>
+		<commons-dbcp-version>1.4</commons-dbcp-version>
+		<jsp-api-version>2.2</jsp-api-version>
+		<jstl-version>1.2</jstl-version>
+		<javax-inject-version>1</javax-inject-version>
+		<google-guava-version>18.0</google-guava-version>
+		<sauce-rest-client-version>1.0.27</sauce-rest-client-version>
+		<xml-apis-version>1.4.01</xml-apis-version>
+		<hsqldb-version>2.3.2</hsqldb-version>
+		<mockito-version>1.9.5</mockito-version>
+		<commons-csv-version>1.2</commons-csv-version>
+		<maven-site-plugin-version>3.5</maven-site-plugin-version>
+		<maven-javadoc-plugin-version>2.10.3</maven-javadoc-plugin-version>
+		<surefire-version>2.19.1</surefire-version>
+		<apache-validator-version>1.4.0</apache-validator-version>
+
+		<!-- Default Source encoding -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<repositories>
+
+		<repository>
+			<id>ccp-master</id>
+			<url>${repository-url}/content/groups/master</url>
+		</repository>
+
+	</repositories>
+
+	<dependencyManagement>
+		<dependencies>
+		
+			<!-- Spring -->
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-context</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<dependency>
+        		<groupId>org.springframework</groupId>
+        		<artifactId>spring-orm</artifactId>
+        		<version>${spring.version}</version>
+    		</dependency>
+    		<dependency>
+  				<groupId>org.springframework</groupId>
+  				<artifactId>spring-test</artifactId>
+  				<version>${spring.version}</version>
+			</dependency>
+		
+			<!-- TEST APIs -->		
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>${junit-version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.testng</groupId>
+				<artifactId>testng</artifactId>
+				<version>${testng-version}</version>
+			</dependency>
+			<dependency>
+				<groupId>info.cukes</groupId>
+				<artifactId>cucumber-junit</artifactId>
+				<version>${cucumber-java-version}</version>
+			</dependency>
+			<dependency>
+  				<groupId>info.cukes</groupId>
+  				<artifactId>cucumber-java</artifactId>
+  				<version>${cucumber-java-version}</version>
+			</dependency>
+			<dependency>
+        		<groupId>org.seleniumhq.selenium</groupId>
+        		<artifactId>selenium-server</artifactId>
+       			<version>${selenium-server-version}</version>
+    		</dependency>
+
+			<!-- SLF4J -->
+			<dependency>
+				<groupId>log4j</groupId>
+				<artifactId>log4j</artifactId>
+				<version>${log4j.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-log4j12</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+
+			<!-- Google OAuth dependencies -->
+			<dependency>
+				<groupId>com.google.oauth-client</groupId>
+				<artifactId>google-oauth-client</artifactId>
+				<version>${google.oauth-client.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.google.http-client</groupId>
+				<artifactId>google-http-client-jackson2</artifactId>
+				<version>${google.oauth-client.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>joda-time</groupId>
+				<artifactId>joda-time</artifactId>
+				<version>2.8.2</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.fasterxml.jackson.datatype</groupId>
+				<artifactId>jackson-datatype-joda</artifactId>
+				<version>${jackson2.version}</version>
+			</dependency>
+
+			<!-- Apache HTTP Client -->
+			<dependency>
+				<groupId>org.apache.httpcomponents</groupId>
+				<artifactId>httpclient</artifactId>
+				<version>4.3.2</version>
+			</dependency>
+
+			<!-- Jackson -->
+			<dependency>
+				<groupId>com.fasterxml.jackson.core</groupId>
+				<artifactId>jackson-core</artifactId>
+				<version>${jackson2.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.codehaus.jackson</groupId>
+				<artifactId>jackson-mapper-lgpl</artifactId>
+				<version>${jackson-core-asl-version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.fasterxml.jackson.core</groupId>
+				<artifactId>jackson-annotations</artifactId>
+				<version>${jackson2.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.fasterxml.jackson.core</groupId>
+				<artifactId>jackson-databind</artifactId>
+				<version>${jackson2.version}</version>
+			</dependency>
+
+			<!-- JWT Library -->
+			<dependency>
+				<groupId>io.jsonwebtoken</groupId>
+				<artifactId>jjwt</artifactId>
+				<version>0.6.0</version>
+			</dependency>
+			
+			<!-- Hibernate ORM -->
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-core</artifactId>
+				<version>${hibernate-version}</version>
+			</dependency>
+			
+			<!-- HSQL Database -->
+			<dependency>
+  				<groupId>org.hsqldb</groupId>
+  				<artifactId>hsqldb</artifactId>
+  				<version>${hsqldb-version}</version>
+			</dependency>
+			
+			<dependency>
+        		<groupId>commons-dbcp</groupId>
+        		<artifactId>commons-dbcp</artifactId>
+        		<version>${commons-dbcp-version}</version>
+        	</dependency>
+        	
+        	<!-- SAUCELABS -->
+        	<dependency>
+            	<groupId>com.saucelabs</groupId>
+            	<artifactId>sauce_java_common</artifactId>
+            	<version>${sauce-common-version}</version>
+        	</dependency>        	
+        	<dependency>
+        		<groupId>com.saucelabs</groupId>
+        		<artifactId>saucerest</artifactId>
+        		<version>${sauce-rest-client-version}</version>
+        	</dependency>
+        	
+        	<!-- SSLv3 is disabled by default in Java 1.8 and enabled in Splunk API. To make this workable without SSLv3, 
+        	the original jar need to be modified to access CIMA Splunk server. -->
+        	<dependency>
+        		<groupId>com.splunk</groupId>
+        		<artifactId>splunk</artifactId>
+        		<version>1.5.0.m</version>
+        	</dependency>
+			
+			<dependency>
+				<groupId>org.apache.wink</groupId>
+				<artifactId>wink-client</artifactId>
+				<version>${wink-client-version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.sun.xml.bind</groupId>
+				<artifactId>jaxb-impl</artifactId>
+				<version>${jaxb-impl-version}</version>
+			</dependency>
+			<dependency>
+				<groupId>geronimo-spec</groupId>
+				<artifactId>geronimo-spec-jta</artifactId>
+				<version>${geronimo-spec-jta-version}</version>
+			</dependency>
+			<dependency>
+        		<groupId>org.apache.commons</groupId>
+        		<artifactId>commons-jcs-core</artifactId>
+        		<version>${apache-jcs-core-version}</version>
+        	</dependency>
+        	<dependency>
+        		<groupId>org.apache.xbean</groupId>
+        		<artifactId>xbean-spring</artifactId>
+        		<version>${xbean-version}</version>
+        	</dependency>
+        	<dependency>
+        		<groupId>org.jdom</groupId>
+        		<artifactId>jdom2</artifactId>
+        		<version>${jdom2-version}</version>
+        	</dependency>
+        	<dependency>
+        		<groupId>org.apache.poi</groupId>
+        		<artifactId>poi-ooxml</artifactId>
+        		<version>${poi-version}</version>
+        	</dependency>
+        	<dependency>
+        		<groupId>com.jcraft</groupId>
+        		<artifactId>jsch</artifactId>
+        		<version>${jsch-version}</version>
+        	</dependency>
+        	<dependency>
+        		<groupId>xml-apis</groupId>
+        		<artifactId>xml-apis</artifactId>
+        		<version>${xml-apis-version}</version>
+        	</dependency>
+        	<dependency>
+  				<groupId>org.apache.commons</groupId>
+  				<artifactId>commons-csv</artifactId>
+  				<version>${commons-csv-version}</version>
+			</dependency>
+        	
+        	<!-- Spring MVC-->
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-webmvc</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+				
+			<!-- AspectJ -->
+			<dependency>
+				<groupId>org.aspectj</groupId>
+				<artifactId>aspectjrt</artifactId>
+				<version>${org.aspectj-version}</version>
+			</dependency>
+
+			<!-- @Inject -->
+			<dependency>
+				<groupId>javax.inject</groupId>
+				<artifactId>javax.inject</artifactId>
+				<version>${javax-inject-version}</version>
+			</dependency>
+				
+			<!-- JSP -->
+			<dependency>
+				<groupId>javax.servlet.jsp</groupId>
+				<artifactId>jsp-api</artifactId>
+				<version>${jsp-api-version}</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>jstl</artifactId>
+				<version>${jstl-version}</version>
+			</dependency>
+			
+			<!-- Mockito -->
+			<dependency>
+				<groupId>org.mockito</groupId>
+				<artifactId>mockito-all</artifactId>
+				<version>${mockito-version}</version>
+			</dependency>
+			
+			<!--  Apache commons validator -->
+			<dependency>
+				<groupId>commons-validator</groupId>
+				<artifactId>commons-validator</artifactId>
+				<version>${apache-validator-version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<profiles>
+		<profile>
+			<id>build CITF</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<build>
+				<pluginManagement>
+					<plugins>
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-clean-plugin</artifactId>
+							<version>${maven-clean-plugin-version}</version>
+						</plugin>
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-deploy-plugin</artifactId>
+							<version>${maven-deploy-plugin-version}</version>
+						</plugin>
+						<plugin>
+							<artifactId>maven-compiler-plugin</artifactId>
+							<version>${maven-compiler-plugin-version}</version>
+							<configuration>
+								<source>${jdk-version}</source>
+								<target>${jdk-version}</target>
+							</configuration>
+						</plugin>
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-jar-plugin</artifactId>
+							<version>${maven-jar-plugin-version}</version>
+						</plugin>
+						<plugin>
+							<groupId>org.codehaus.mojo</groupId>
+							<artifactId>exec-maven-plugin</artifactId>
+							<version>${exec-maven-plugin-version}</version>
+						</plugin>
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-install-plugin</artifactId>
+							<version>2.4</version>
+							<inherited>false</inherited>
+							<executions>
+								<execution>
+									<phase>initialize</phase>
+									<goals>
+										<goal>install-file</goal>
+									</goals>
+									<configuration>
+										<groupId>com.splunk</groupId>
+										<artifactId>splunk</artifactId>
+										<version>1.5.0.m</version>
+										<packaging>jar</packaging>
+										<file>${basedir}/citf-common/external-libs/splunk-1.5.0.m.jar</file>
+									</configuration>
+								</execution>
+							</executions>
+						</plugin>
+						<plugin>
+            				<groupId>org.apache.maven.plugins</groupId>
+            				<artifactId>maven-site-plugin</artifactId>
+            				<version>${maven-site-plugin-version}</version>
+            				<configuration>
+                				<reportPlugins>
+                    				<plugin>
+                        				<groupId>org.apache.maven.plugins</groupId>
+                        				<artifactId>maven-javadoc-plugin</artifactId>
+                       					<version>${maven-javadoc-plugin-version}</version>
+                        				<reportSets>
+                            				<reportSet>
+                               					<id>aggregate</id>
+                                				<reports>
+                                    				<report>aggregate</report>
+                                				</reports>
+                            				</reportSet>
+                        				</reportSets>
+                       					<configuration/>
+				                    </plugin>
+               					</reportPlugins>
+            				</configuration>
+        				</plugin>
+					</plugins>
+				</pluginManagement>
+			</build>
+			<modules>
+				<module>citf-common</module>
+				<module>citf-core</module>
+				<module>cima-login</module>
+				<module>cima-idm</module>
+				<module>cima-tve</module>
+			</modules>
+		</profile>
+	</profiles>
+</project>

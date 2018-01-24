@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="urn:oasis:names:tc:SAML:2.0:assertion" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:ns4="http://www.w3.org/2000/09/xmldsig#" xmlns:xi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xsd:element name="Assertion">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="Issuer" minOccurs="0" maxOccurs="1" type="xsd:anyURI"/>
+        <xsd:element name="Signature" minOccurs="0" maxOccurs="1">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="SignedInfo" minOccurs="0" maxOccurs="1">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="CanonicalizationMethod" minOccurs="0" maxOccurs="1">
+                      <xsd:complexType>
+                        <xsd:simpleContent>
+                          <xsd:extension base="xsd:string">
+                            <xsd:attribute name="Algorithm" type="xsd:anyURI" use="required"/>
+                          </xsd:extension>
+                        </xsd:simpleContent>
+                      </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="SignatureMethod" minOccurs="0" maxOccurs="1">
+                      <xsd:complexType>
+                        <xsd:simpleContent>
+                          <xsd:extension base="xsd:string">
+                            <xsd:attribute name="Algorithm" type="xsd:anyURI" use="required"/>
+                          </xsd:extension>
+                        </xsd:simpleContent>
+                      </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="Reference" minOccurs="0" maxOccurs="1">
+                      <xsd:complexType>
+                        <xsd:sequence>
+                          <xsd:element name="Transforms" minOccurs="0" maxOccurs="1">
+                            <xsd:complexType>
+                              <xsd:sequence>
+                                <xsd:element name="Transform" maxOccurs="unbounded">
+                                  <xsd:complexType>
+                                    <xsd:simpleContent>
+                                      <xsd:extension base="xsd:string">
+                                        <xsd:attribute name="Algorithm" type="xsd:anyURI" use="required"/>
+                                      </xsd:extension>
+                                    </xsd:simpleContent>
+                                  </xsd:complexType>
+                                </xsd:element>
+                              </xsd:sequence>
+                            </xsd:complexType>
+                          </xsd:element>
+                          <xsd:element name="DigestMethod" minOccurs="0" maxOccurs="1">
+                            <xsd:complexType>
+                              <xsd:simpleContent>
+                                <xsd:extension base="xsd:string">
+                                  <xsd:attribute name="Algorithm" type="xsd:anyURI" use="required"/>
+                                </xsd:extension>
+                              </xsd:simpleContent>
+                            </xsd:complexType>
+                          </xsd:element>
+                          <xsd:element name="DigestValue" minOccurs="0" maxOccurs="1" type="xsd:normalizedString"/>
+                        </xsd:sequence>
+                        <xsd:attribute name="URI" type="xsd:normalizedString" use="required"/>
+                      </xsd:complexType>
+                    </xsd:element>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="SignatureValue" minOccurs="0" maxOccurs="1" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="Subject" minOccurs="0" maxOccurs="1">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="NameID" minOccurs="0" maxOccurs="1">
+                <xsd:complexType>
+                  <xsd:simpleContent>
+                    <xsd:extension base="xsd:normalizedString">
+                      <xsd:attribute name="Format" type="xsd:normalizedString" use="required"/>
+                    </xsd:extension>
+                  </xsd:simpleContent>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="SubjectConfirmation" minOccurs="0" maxOccurs="1">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="SubjectConfirmationData" minOccurs="0" maxOccurs="1">
+                      <xsd:complexType>
+                        <xsd:simpleContent>
+                          <xsd:extension base="xsd:string">
+                            <xsd:attribute name="NotBefore" type="xsd:normalizedString" use="required"/>
+                            <xsd:attribute name="NotOnOrAfter" type="xsd:normalizedString" use="required"/>
+                            <xsd:attribute name="Recipient" type="xsd:anyURI" use="required"/>
+                          </xsd:extension>
+                        </xsd:simpleContent>
+                      </xsd:complexType>
+                    </xsd:element>
+                  </xsd:sequence>
+                  <xsd:attribute name="Method" type="xsd:normalizedString" use="required"/>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="Conditions" minOccurs="0" maxOccurs="1">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="AudienceRestriction" minOccurs="0" maxOccurs="1">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="Audience" minOccurs="0" maxOccurs="1" type="xsd:anyURI"/>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+            <xsd:attribute name="NotBefore" type="xsd:normalizedString" use="required"/>
+            <xsd:attribute name="NotOnOrAfter" type="xsd:normalizedString" use="required"/>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="AuthnStatement" minOccurs="0" maxOccurs="1">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="AuthnContext" minOccurs="0" maxOccurs="1">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="AuthnContextClassRef" minOccurs="0" maxOccurs="1" type="xsd:normalizedString"/>
+                    <xsd:element name="AuthnContextDeclRef" minOccurs="0" maxOccurs="1" type="xsd:normalizedString"/>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+            <xsd:attribute name="AuthnInstant" type="xsd:normalizedString" use="required"/>
+            <xsd:attribute name="SessionNotOnOrAfter" type="xsd:normalizedString" use="required"/>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="AttributeStatement" minOccurs="0" maxOccurs="1">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="Attribute" maxOccurs="unbounded">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="AttributeValue" minOccurs="0" maxOccurs="unbounded">
+                      <xsd:complexType>
+                        <xsd:simpleContent>
+                          <xsd:extension base="xsd:normalizedString">
+                            <xsd:attribute name="type" type="xsd:normalizedString" use="required"/>
+                          </xsd:extension>
+                        </xsd:simpleContent>
+                      </xsd:complexType>
+                    </xsd:element>
+                  </xsd:sequence>
+                  <xsd:attribute name="Name" type="xsd:normalizedString" use="required"/>
+                  <xsd:attribute name="NameFormat" type="xsd:normalizedString" use="required"/>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+      <xsd:attribute name="ID" type="xsd:normalizedString" use="required"/>
+      <xsd:attribute name="IssueInstant" type="xsd:normalizedString" use="required"/>
+      <xsd:attribute name="Version" type="xsd:decimal" use="required"/>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

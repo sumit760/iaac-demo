@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="urn:comcast:login:api:v1.0" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:cima="urn:comcast:login:api:v1.0">
+  <xsd:element name="AccessTokenResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="ServiceToken" minOccurs="0" maxOccurs="1">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="AuthResponse" minOccurs="0" maxOccurs="1">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="authToken" minOccurs="0" maxOccurs="1" type="xsd:normalizedString"/>
+                    <xsd:element name="lifetime" minOccurs="0" maxOccurs="1" type="xsd:int"/>
+                    <xsd:element name="skin" minOccurs="0" maxOccurs="1" type="xsd:normalizedString"/>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="Status" minOccurs="0" maxOccurs="1">
+          <xsd:complexType>
+            <xsd:simpleContent>
+              <xsd:extension base="xsd:string">
+                <xsd:attribute name="Code" type="xsd:normalizedString" use="required"/>
+              </xsd:extension>
+            </xsd:simpleContent>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+      <xsd:attribute name="version" type="xsd:decimal" use="required"/>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

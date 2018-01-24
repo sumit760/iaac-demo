@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:comcast:login:api:v1.0">
+  <xsd:element name="AuthnResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="LoginToken" minOccurs="0" maxOccurs="1">
+          <xsd:complexType>
+            <xsd:simpleContent>
+              <xsd:extension base="xsd:normalizedString">
+                <xsd:attribute name="ExpiresOn" type="xsd:normalizedString" use="required"/>
+              </xsd:extension>
+            </xsd:simpleContent>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="Status" minOccurs="0" maxOccurs="1">
+          <xsd:complexType>
+            <xsd:simpleContent>
+              <xsd:extension base="xsd:string">
+                <xsd:attribute name="Code" type="xsd:normalizedString" use="required"/>
+              </xsd:extension>
+            </xsd:simpleContent>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+      <xsd:attribute name="version" type="xsd:decimal" use="required"/>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

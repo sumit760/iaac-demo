@@ -1,0 +1,65 @@
+<env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/">
+    <env:Header/>
+    <env:Body>
+        <saml2p:Response ID="_64ce96c85df939de824edbdf22a2fdbc" InResponseTo="ZvNvMHV9wHY2SQmZL0v2FsspEnk" IssueInstant="2015-08-05T19:07:29.516Z" Version="2.0" xmlns:saml2p="urn:oasis:names:tc:SAML:2.0:protocol">
+            <saml2:Issuer xmlns:saml2="urn:oasis:names:tc:SAML:2.0:assertion">https://sso.comcast.net/Comcast/IdP/sso</saml2:Issuer>
+            <ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+                <ds:SignedInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+                    <ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" xmlns:ds="http://www.w3.org/2000/09/xmldsig#"/>
+                    <ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" xmlns:ds="http://www.w3.org/2000/09/xmldsig#"/>
+                    <ds:Reference URI="#_64ce96c85df939de824edbdf22a2fdbc" xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+                        <ds:Transforms xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+                            <ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" xmlns:ds="http://www.w3.org/2000/09/xmldsig#"/>
+                            <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+                                <ec:InclusiveNamespaces PrefixList="ds ns2 ns3 saml2 saml2p xacml-context xacml-saml #default" xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+                            </ds:Transform>
+                        </ds:Transforms>
+                        <ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" xmlns:ds="http://www.w3.org/2000/09/xmldsig#"/>
+                        <ds:DigestValue xmlns:ds="http://www.w3.org/2000/09/xmldsig#">7Ph8vPefX+dP+IPhnTTKX5xY0lA=</ds:DigestValue>
+                    </ds:Reference>
+                </ds:SignedInfo>
+                <ds:SignatureValue xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+cuABAi/3uOzS4yIr8nAyn96kUWrhgvJYAIWoKVMfm5CCiVmXXV9S7l1gUUP4WUQue3MCpun2Yfpz
+ngswkc1umlh9T8lYwwOk4LutQpXhisfF4z4yWbfw7MI9rtIKaN9O6z0KcPQyii8D0xuUJoRHyXqk
+w/UBlMhKPSaD2HUzhrQ=
+</ds:SignatureValue>
+                <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+                    <ds:KeyValue xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+                        <ds:RSAKeyValue xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+                            <ds:Modulus xmlns:ds="http://www.w3.org/2000/09/xmldsig#">3VNqhz3gIH2s8MH5cdmlNu+QYBQi5c++gR2mnwQmbitcxLVwxnsTV6zPuJeZpNYk+5TrRxT9yr32
+CaUM5ylllpk4CGAWernC2wyWwuCIFSBK9aaZmqbeObEg++GeA14YSZUjJnuxRTjoHgzyrJ7+gcUx
+tDYIH8hUVivKVjXR/A0=</ds:Modulus>
+                            <ds:Exponent xmlns:ds="http://www.w3.org/2000/09/xmldsig#">AQAB</ds:Exponent>
+                        </ds:RSAKeyValue>
+                    </ds:KeyValue>
+                </ds:KeyInfo>
+            </ds:Signature>
+            <saml2p:Status xmlns:saml2p="urn:oasis:names:tc:SAML:2.0:protocol">
+                <saml2p:StatusCode Value="urn:oasis:names:tc:SAML:2.0:status:Success" xmlns:saml2p="urn:oasis:names:tc:SAML:2.0:protocol"/>
+            </saml2p:Status>
+            <saml2:Assertion ID="_a0498c487e97f170f4ec9fb85a104c70" IssueInstant="2015-08-05T19:07:29.516Z" Version="2.0" xmlns:saml2="urn:oasis:names:tc:SAML:2.0:assertion">
+                <saml2:Issuer xmlns:saml2="urn:oasis:names:tc:SAML:2.0:assertion">https://sso.comcast.net/Comcast/IdP/sso</saml2:Issuer>
+                <saml2:Statement xmlns:xacml-saml="urn:oasis:names:tc:xacml:2.0:profile:saml2.0:v2:schema:assertion" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xacml-saml:XACMLAuthzDecisionStatementType" xmlns:saml2="urn:oasis:names:tc:SAML:2.0:assertion">
+                    <ns3:Response xmlns="urn:oasis:names:tc:xacml:3.0:core:schema:wd-17" xmlns:ns2="urn:oasis:names:tc:xacml:2.0:policy:schema:os" xmlns:ns3="urn:oasis:names:tc:xacml:2.0:context:schema:os">
+                        <ns3:Result xmlns:ns3="urn:oasis:names:tc:xacml:2.0:context:schema:os">
+                            <ns3:Decision xmlns:ns3="urn:oasis:names:tc:xacml:2.0:context:schema:os">Permit</ns3:Decision>
+                            <ns3:Status xmlns:ns3="urn:oasis:names:tc:xacml:2.0:context:schema:os">
+                                <ns3:StatusCode Value="urn:oasis:names:tc:xacml:1.0:status:ok" xmlns:ns3="urn:oasis:names:tc:xacml:2.0:context:schema:os"/>
+                            </ns3:Status>
+                            <ns2:Obligations xmlns:ns2="urn:oasis:names:tc:xacml:2.0:policy:schema:os">
+                                <ns2:Obligation FulfillOn="Permit" ObligationId="urn:cablelabs:ocla:1.0:advice:content:ratings" xmlns:ns2="urn:oasis:names:tc:xacml:2.0:policy:schema:os">
+                                    <ns2:AttributeAssignment AttributeId="urn:cablelabs:ocla:1.0:attribute:content:ratings:maxMPAA" DataType="http://www.w3.org/2001/XMLSchema#string" xmlns:ns2="urn:oasis:names:tc:xacml:2.0:policy:schema:os">PG-13</ns2:AttributeAssignment>
+                                    <ns2:AttributeAssignment AttributeId="urn:cablelabs:ocla:1.0:attribute:content:ratings:maxVCHIP" DataType="http://www.w3.org/2001/XMLSchema#string" xmlns:ns2="urn:oasis:names:tc:xacml:2.0:policy:schema:os">TV-Y</ns2:AttributeAssignment>
+                                    <ns2:AttributeAssignment AttributeId="urn:cablelabs:ocla:1.0:attribute:content:ratings:manageURL" DataType="http://www.w3.org/2001/XMLSchema#anyURI" xmlns:ns2="urn:oasis:names:tc:xacml:2.0:policy:schema:os">https://customer.qa7.xfinity.com/Secure/OnlineParentalControls.aspx</ns2:AttributeAssignment>
+                                </ns2:Obligation>
+                                <ns2:Obligation FulfillOn="Permit" ObligationId="urn:cablelabs:ocla:1.0:obligations:re-authz" xmlns:ns2="urn:oasis:names:tc:xacml:2.0:policy:schema:os">
+                                    <ns2:AttributeAssignment AttributeId="urn:cablelabs:ocla:1.0:attribute:authz:valid-for-seconds" DataType="http://www.w3.org/2001/XMLSchema#integer" xmlns:ns2="urn:oasis:names:tc:xacml:2.0:policy:schema:os">3600</ns2:AttributeAssignment>
+                                </ns2:Obligation>
+                            </ns2:Obligations>
+                        </ns3:Result>
+                    </ns3:Response>
+                </saml2:Statement>
+            </saml2:Assertion>
+        </saml2p:Response>
+    </env:Body>
+</env:Envelope>

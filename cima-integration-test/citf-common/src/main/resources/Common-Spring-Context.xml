@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:tx="http://www.springframework.org/schema/tx"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+    						http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+    						http://www.springframework.org/schema/context
+							http://www.springframework.org/schema/context/spring-context-4.0.xsd
+							http://www.springframework.org/schema/tx
+							http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+
+		<context:property-placeholder location="classpath:hibernate-config.properties" />
+
+		<context:component-scan base-package="com.comcast.test.citf.common.http"/>
+		<context:component-scan base-package="com.comcast.test.citf.common.crypto"/>
+		<context:component-scan base-package="com.comcast.test.citf.common.orm"/>
+		<context:component-scan base-package="com.comcast.test.citf.common.cima.persistence"/>
+		<context:component-scan base-package="com.comcast.test.citf.common.ldap"/>
+		<context:component-scan base-package="com.comcast.test.citf.common.util"/>
+		<context:component-scan base-package="com.comcast.test.citf.common.reader"/>
+		<context:component-scan base-package="com.comcast.test.citf.common.service"/>
+		<context:component-scan base-package="com.comcast.test.citf.common.helpers"/>	
+		<context:component-scan base-package="com.comcast.test.citf.common.parser"/>
+		<context:component-scan base-package="com.comcast.test.citf.common.xacml"/>
+		<context:component-scan base-package="com.comcast.test.citf.common.util"/>
+		<context:component-scan base-package="com.comcast.test.citf.common.ui.router"/>
+
+		<bean id="testNG" class="org.testng.TestNG" scope="prototype"/>
+
+		<bean id="apiTestExecuter" class="com.comcast.test.citf.common.testng.ExecuteApiTests" scope="prototype">
+    		<property name="testNg" ref="testNG"/>
+    	</bean>
+
+    	<tx:annotation-driven transaction-manager="transactionManager"/>
+
+        <bean id="dbcp" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+			<property name="driverClassName" value="${jdbc.driverClassName}" />
+			<property name="url" value="${jdbc.url}" />
+			<property name="username" value="${jdbc.username}" />
+			<property name="password" value="${jdbc.password}" />
+			<property name="removeAbandoned" value="true" />
+			<property name="initialSize" value="10" />
+			<property name="maxActive" value="50" />
+		</bean>
+
+    	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean" >
+        	<property name="dataSource" ref="dbcp"/>
+        	<property name="packagesToScan">
+            	<list>
+                	<value>com.comcast.test.citf.common.cima.persistence.beans</value>
+            	</list>
+        	</property>
+        	<property name="hibernateProperties">
+            	<props>
+                	<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+                	<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+                	<prop key="hibernate.format_sql">${hibernate.format_sql}</prop>
+                	<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
+            		<prop key="hibernate.hbm2ddl.import_files">${hibernate.hbm2ddl.import_files}</prop>
+            	</props>
+        	</property>
+    	</bean>
+
+    	<bean id="transactionManager"  class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        	<property name="sessionFactory" ref="sessionFactory" />
+    	</bean>
+
+    	<bean id="persistenceExceptionTranslationPostProcessor"
+        	class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
+
+</beans>

@@ -1,0 +1,40 @@
+*.DS_Store
+
+# /
+/.classpath
+/.project
+/.settings
+/target
+/.springBeans
+/.idea/
+/*.iml
+
+# /cima-idm/
+/cima-idm/target
+/cima-idm/.sonar
+/cima-idm/*.iml
+
+# /cima-login/
+/cima-login/target
+/cima-login/test-output
+/cima-login/.sonar
+/cima-login/*.iml
+
+# /cima-tve/
+/cima-tve/target
+/cima-tve/*.iml
+
+# /citf-common/
+/citf-common/target
+/citf-common/.sonar
+/citf-common/*.iml
+
+# /citf-core/
+/citf-core/target
+/citf-core/.sonar
+/citf-core/*.iml
+
+# /citf-ui/
+/citf-ui/target
+/citf-ui/.sonar
+/citf-ui/*.iml

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans 	xmlns="http://www.springframework.org/schema/beans"
+    	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    	xmlns:context="http://www.springframework.org/schema/context" 
+    	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+    						http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+    						http://www.springframework.org/schema/context 
+							http://www.springframework.org/schema/context/spring-context-4.0.xsd">				
+        
+        <context:annotation-config/>
+        <context:component-scan base-package="com.comcast.cima.test.api.cucumber.steps"/>
+        <context:component-scan base-package="com.comcast.cima.test.ui.cucumber.steps"/>
+        <context:component-scan base-package="com.comcast.test.citf.core.dataProvider"/>
+        <context:component-scan base-package="com.comcast.test.citf.core.cache"/>
+		<context:component-scan base-package="com.comcast.test.citf.core.init"/>
+		<context:component-scan base-package="com.comcast.test.citf.common.reader"/>
+		<context:component-scan base-package="com.comcast.test.citf.core.helpers"/>
+        
+
+        <bean class="com.comcast.cima.test.ui.cucumber.steps.UICommonSteps" scope="cucumber-thread"/>
+        <bean class="com.comcast.cima.test.api.cucumber.steps.RestCommonSteps" scope="cucumber-thread"/>
+        <bean class="com.comcast.test.citf.core.cucumber.steps.OAuthCommonSteps" scope="cucumber-thread"/>
+        <bean class="com.comcast.test.citf.core.cucumber.steps.CoreCucumberSteps" scope="cucumber-thread"/>
+        <bean id="userDP" class="com.comcast.test.citf.core.dataProvider.UserDataProvider" scope="cucumber-thread"/>
+        <bean class="com.comcast.cima.test.api.cucumber.steps.OAuth_WebServerApplication_Flow" scope="cucumber-thread"/>
+</beans>

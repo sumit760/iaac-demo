@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ns3:Response xmlns:ns3="urn:oasis:names:tc:xacml:2.0:context:schema:os" xmlns="urn:oasis:names:tc:xacml:3.0:core:schema:wd-17" xmlns:ns2="urn:oasis:names:tc:xacml:2.0:policy:schema:os">
+    <ns3:Result xmlns:ns3="urn:oasis:names:tc:xacml:2.0:context:schema:os">
+        <ns3:Decision xmlns:ns3="urn:oasis:names:tc:xacml:2.0:context:schema:os">Deny</ns3:Decision>
+        <ns3:Status xmlns:ns3="urn:oasis:names:tc:xacml:2.0:context:schema:os">
+            <ns3:StatusCode Value="urn:oasis:names:tc:xacml:1.0:status:ok" xmlns:ns3="urn:oasis:names:tc:xacml:2.0:context:schema:os"/>
+        </ns3:Status>
+        <ns2:Obligations xmlns:ns2="urn:oasis:names:tc:xacml:2.0:policy:schema:os">
+            <ns2:Obligation FulfillOn="Deny" ObligationId="urn:cablelabs:ocla:1.0:advice:content:subscription:tv-network" xmlns:ns2="urn:oasis:names:tc:xacml:2.0:policy:schema:os">
+                <ns2:AttributeAssignment AttributeId="urn:cablelabs:ocla:1.0:attribute:enviroment:buy-flow:message" DataType="http://www.w3.org/2001/XMLSchema#string" xmlns:ns2="urn:oasis:names:tc:xacml:2.0:policy:schema:os">This network is not included in your current television subscription. Please contact your TV provider to subscribe.</ns2:AttributeAssignment>
+                <ns2:AttributeAssignment AttributeId="urn:cablelabs:olca:1.0:attribute:content:subscription:tv-network:reason-code" DataType="http://www.w3.org/2001/XMLSchema#string" xmlns:ns2="urn:oasis:names:tc:xacml:2.0:policy:schema:os">0101</ns2:AttributeAssignment>
+            </ns2:Obligation>
+            <ns2:Obligation FulfillOn="Deny" ObligationId="urn:cablelabs:ocla:1.0:advice:content:subscription:tv-network:url" xmlns:ns2="urn:oasis:names:tc:xacml:2.0:policy:schema:os">
+                <ns2:AttributeAssignment AttributeId="urn:cablelabs:ocla:1.0:attribute:enviroment:buy-flow:url" DataType="http://www.w3.org/2001/XMLSchema#anyURI" xmlns:ns2="urn:oasis:names:tc:xacml:2.0:policy:schema:os">https://login-qa4.comcast.net/h/tve_unauthorized_nochannel.html</ns2:AttributeAssignment>
+            </ns2:Obligation>
+        </ns2:Obligations>
+    </ns3:Result>
+</ns3:Response>

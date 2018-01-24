@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="urn:comcast:login:api:v1.0" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:cima="urn:comcast:login:api:v1.0">
+  <xsd:element name="AccessTokenResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="Status" minOccurs="0" maxOccurs="1">
+          <xsd:complexType>
+            <xsd:simpleContent>
+              <xsd:extension base="xsd:string">
+                <xsd:attribute name="Code" type="xsd:normalizedString" use="required"/>
+                <xsd:attribute name="Message" type="xsd:string" use="required"/>
+              </xsd:extension>
+            </xsd:simpleContent>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+      <xsd:attribute name="version" type="xsd:decimal" use="required"/>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

@@ -1,0 +1,150 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "line": 44,
+        "name": "To validate the Graffiti Instance reporting1",
+        "description": "",
+        "id": "form-submission-and-report-selection;to-validate-the-graffiti-instance-reporting;;2",
+        "after": [
+          {
+            "result": {
+              "duration": 1184094408,
+              "status": "passed"
+            },
+            "match": {
+              "location": "DRLG_51.tearDown()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 31300205681,
+              "status": "passed"
+            },
+            "line": 36,
+            "name": "The user is on the mapping UI page",
+            "match": {
+              "location": "DRLG_51.the_user_is_on_the_mapping_UI_page()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 26647146535,
+              "error_message": "org.openqa.selenium.WebDriverException: chrome not reachable\n  (Session info: chrome\u003d44.0.2403.125)\n  (Driver info: chromedriver\u003d2.16.333243 (0bfa1d3575fc1044244f21ddb82bf870944ef961),platform\u003dWindows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)\nCommand duration or timeout: 2.01 seconds\nBuild info: version: \u00272.45.0\u0027, revision: \u00275017cb8e7ca8e37638dc3091b2440b90a1d8686f\u0027, time: \u00272015-02-27 09:10:26\u0027\nSystem info: host: \u00275CG4490PM1\u0027, ip: \u002710.31.7.76\u0027, os.name: \u0027Windows 7\u0027, os.arch: \u0027amd64\u0027, os.version: \u00276.1\u0027, java.version: \u00271.8.0_45\u0027\nDriver info: org.openqa.selenium.chrome.ChromeDriver\nCapabilities [{applicationCacheEnabled\u003dfalse, rotatable\u003dfalse, mobileEmulationEnabled\u003dfalse, chrome\u003d{userDataDir\u003dC:\\Users\\anupamj846\\AppData\\Local\\Temp\\scoped_dir18804_1892}, takesHeapSnapshot\u003dtrue, databaseEnabled\u003dfalse, handlesAlerts\u003dtrue, hasTouchScreen\u003dfalse, version\u003d44.0.2403.125, platform\u003dXP, browserConnectionEnabled\u003dfalse, nativeEvents\u003dtrue, acceptSslCerts\u003dtrue, locationContextEnabled\u003dtrue, webStorageEnabled\u003dtrue, browserName\u003dchrome, takesScreenshot\u003dtrue, javascriptEnabled\u003dtrue, cssSelectorsEnabled\u003dtrue}]\nSession ID: 422b5ce5e1c5c51b933bf15d401a574d\n*** Element info: {Using\u003did, value\u003dpac-input}\r\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\r\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)\r\n\tat sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\r\n\tat java.lang.reflect.Constructor.newInstance(Constructor.java:422)\r\n\tat org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:204)\r\n\tat org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:156)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:599)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:352)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:393)\r\n\tat org.openqa.selenium.By$ById.findElement(By.java:214)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:344)\r\n\tat classesDRLG.DRLG_51.the_user_searches_for_a_location(DRLG_51.java:154)\r\n\tat ✽.When The user searches for a location \"2 Lexington Street, Soho, London W1F 0LA, UK\"(Sprint3.feature:37)\r\n",
+              "status": "failed"
+            },
+            "line": 37,
+            "name": "The user searches for a location \"2 Lexington Street, Soho, London W1F 0LA, UK\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "2 Lexington Street, Soho, London W1F 0LA, UK",
+                  "offset": 34
+                }
+              ],
+              "location": "DRLG_51.the_user_searches_for_a_location(String)"
+            },
+            "matchedColumns": [
+              0
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 38,
+            "name": "The Boundary and duplicacy is checked and form data is entered as \"Yes\",\"M\",\"first\",\"last\",\"a.b@c.com\",\"9865432178\",\"2 Lexington Street, Soho, London W1F 0LA, UK\",\"Yes\" input",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Yes",
+                  "offset": 67
+                },
+                {
+                  "val": "M",
+                  "offset": 73
+                },
+                {
+                  "val": "first",
+                  "offset": 77
+                },
+                {
+                  "val": "last",
+                  "offset": 85
+                },
+                {
+                  "val": "a.b@c.com",
+                  "offset": 92
+                },
+                {
+                  "val": "9865432178",
+                  "offset": 104
+                },
+                {
+                  "val": "2 Lexington Street, Soho, London W1F 0LA, UK",
+                  "offset": 117
+                },
+                {
+                  "val": "Yes",
+                  "offset": 164
+                }
+              ],
+              "location": "DRLG_51.the_Boundary_is_checked_and_related_ations_done(String,String,String,String,String,String,String,String)"
+            },
+            "matchedColumns": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 39,
+            "name": "Form data is submitted",
+            "match": {
+              "location": "DRLG_51.duplicacy_is_checked_and_related_ations_done()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 40,
+            "name": "Confirmation page is obtained",
+            "match": {
+              "location": "DRLG_51.confirmation_page_is_obtained()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 34,
+            "name": "@DRLG51"
+          }
+        ]
+      }
+    ],
+    "name": "Form Submission and Report Selection",
+    "description": "",
+    "id": "form-submission-and-report-selection",
+    "keyword": "Feature",
+    "uri": "Sprint3.feature"
+  }
+]

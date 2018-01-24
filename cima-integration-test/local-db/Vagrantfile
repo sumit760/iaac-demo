@@ -1,0 +1,39 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# This sets up local VM with MySQL
+# that can be used to run CITF tests locally
+# without installing MySQL on the host machine
+
+VAGRANTFILE_API_VERSION = "2"
+
+$script = <<SCRIPT
+    set -x
+    echo "Provisioning services..."
+    date > /etc/vagrant_provisioned_at
+    echo "Installing MySQL"
+    yum install mysql-server -y
+    /sbin/service mysqld start
+    /sbin/chkconfig mysqld on
+    echo "Creating CITF database"
+    mysql -e "source /tmp/cima_ddl_script.sql"
+    mysql -e "source /tmp/cima_dml_script.sql"
+    echo "Creating 'citf_user'"
+    mysql -e "create user 'citf_user'@'%' identified by 'citf_password'"
+    mysql -e "grant all on citfdb.* to 'citf_user'@'%'"
+    mysql -e "DROP USER ''@'localhost'"
+
+SCRIPT
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+
+  # config.vm.box = "grtjn/centos-6.5"
+  config.vm.box = "puppetlabs/centos-6.6-64-nocm"
+  config.vm.provision "file", source: "../citf-common/src/main/resources/cima-db/cima_ddl_script.sql", destination: "/tmp/cima_ddl_script.sql"
+  config.vm.provision "file", source: "../citf-common/src/main/resources/cima-db/cima_dml_script.sql", destination: "/tmp/cima_dml_script.sql"
+
+
+  config.vm.provision :shell, :inline => $script
+
+  # Forward MySQL port
+  config.vm.network "forwarded_port", guest: 3306, host: 3306
+end
